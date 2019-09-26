@@ -1,0 +1,66 @@
+Cleaning up code and adding config reader	a month ago
+config_resources	Updating kafka helm values.yaml - 09/12	2 days ago
+consumer	Updating Elasticsearch index mapping in consumer.go - 09/04	10 days ago
+models	Updating handlers.go for the custom metrics - 08/27	18 days ago
+rank	Updating Elasticsearch index mapping in consumer.go - 09/04	10 days ago
+util	Fixing elastic local issue	18 days ago
+Dockerfile	Cleaning up code and adding config reader	a month ago
+Jenkinsfile	Updating Sonar Scan stage in Jenkinsfile - 08/05	a month ago
+Makefile	Updating Unix Makefile - 07/16	2 months ago
+Optumfile.yml	Updating Optumfile.yml file - 08/08	a month ago
+README.md	Updating README.md file - 08/08	a month ago
+build-and-run.sh	Removing Go build steps in Scripts, As it is not needed - 07/23	2 months ago
+build.sh	Removing Go build steps in Scripts, As it is not needed - 07/23	2 months ago
+deployment.yml	Updating properties file and Kubernetes YAMl files - 09/09	5 days ago
+entrypoint.sh	Updating the project structure - 07/08	2 months ago
+go.mod	Adding Prometheus custom metrics Counter and Gauges - 08/22	23 days ago
+go.sum	Updating index mapping in consumer.go for elastic v7 or later - 08/20	25 days ago
+hard-reset.sh	Updating the Build and Run script and Docker push script - 07/16	2 months ago
+main.go	Updating handler.go for metrics logging - 08/28	17 days ago
+networkpolicy.yaml	Kube working changes	2 months ago
+properties.yaml	Updating properties file and config yaml files - 09/11	3 days ago
+push-docker-image.sh	Updating properties file - 09/04	10 days ago
+releaseInfo.yml	Updating Jenkinsfile for Docker run and adding releaseinfo.yml - 07/23	2 months ago
+service.yaml	Updating Jenkinsfile for Docker run and adding releaseinfo.yml - 07/23	2 months ago
+sonar-project.properties	Updating sonar-project.properties file - 08/08	a month ago
+ README.md
+has-rank-api
+This GoLang Repository is mainly developed to create REST API for a ML Apllication. Where we expose its output response with the help of HTTP Routers.
+
+Steps to run this Application
+1. Clone this repository.
+2. Run the build.sh script in the project home folder. Which creates the executable files.
+> ./build.sh
+3. We can run this application either from Dockerfile.
+a. build the and run with existing Docker file or use below command:
+
+> docker build -t has-rank-api-image . && docker run -p 8080:8080 --name has-rank-api-app has-rank-api-image
+OR
+b. From Terminal: Run the below command in the terminal in project home folder
+
+> go run main.go
+Testing the REST Services
+You can test the above REST services using CURL or any Browser or REST Client Application like POSTMAN or Google Chrome's RESTCLIENT extension.
+
+Request 1 :
+> GET http://localhost:8080/
+Response 1 :
+Welcome Geek!
+Request 2 :
+> POST http://localhost:8080/api/healthatscale/rank/specialist/v1
+
+{"requestId":"001",
+    "memberId":"mem01",
+    "memberIdType":"string",
+    "referedToSpecialtyCategory":"CC",
+    "referedToSpecialityCode":["SKIN SPECIALIST"],
+    "referedToSpecialityAreaOfBody":"Lower Back",
+    "providerIds":["LIC","ABC"],
+    "searchFilterCriteria":"Near By",
+    "callingApp":"H@S",
+    "callingAppType":"REST API" }
+Response 2 :
+{"responseId":"1231","providers":[{"NPI":"key1","Ranking":"1"},{"NPI":"key2","Ranking":"2"}],"responseStatus":{"StatusCode":"200","StatusMessage":"success"}}
+...
+
+© 2019 GitHub, Inc.

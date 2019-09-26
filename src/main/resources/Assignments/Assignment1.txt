@@ -1,0 +1,47 @@
+1)	Consider a file with the following text:
+
+This is Spark Training
+This is Spark with Scala Training
+Scala is Functional programming
+Spark is lightning fast cluster computing framework
+
+Write a program in Spark-core(RDD) to find and print the number of words in the file.
+
+
+2)	Load two files in the form of JSON one with department data and other with employee specific data and join them both using Spark SQL to print the output with three columns emp_id, emp_name, dept_name
+
+file1: department data,
+{ "dept_name" : "DSG", "emp_id" : 1 }
+{ "dept_name" : "ISL", "emp_id" : 2 }
+{ "dept_name" : "DSG", "emp_id" : 3 }
+{ "dept_name" : "DSG", "emp_id" : 4 }
+{ "dept_name" : "ISL", "emp_id" : 5 }
+
+file2: employee data,
+{ "id" : 1, "name": "Rakesh" }
+{ "id" : 2, "name" : "Rahul" }
+{ "id" : 3, "name" : "Rajesh" }
+{ "id" : 4, "name" : "Supreet" }
+{ "id" : 5, "name" : "Harpreet" }
+
+3)	Given two datasets,
+a.	User information (id, email, language, location)
+1 email@test.com  EN  US
+2 email@test2.com EN  GB
+3 email@test3.com FR  FR
+
+b.	Transaction information (transaction-id, product-id, user-id, purchase-amount, item-description)
+1 1 1 300 item1
+2 1 2 300 item2
+3 1 2 300 item3
+4 2 3 100 item4
+5 1 3 300 item5
+Use Spark-core (RDD) to find the number of unique locations in which each product has been sold.
+
+4)	Consider the file – social_friends.csv and below is the description of columns in the file,
+Column 1: User ID
+Column 2: User Name
+Column 3: Age of the User
+Column 4: Number of Friends with that User
+
+Write Spark-core (RDD) code to calculate the average number of friends based on their age.
