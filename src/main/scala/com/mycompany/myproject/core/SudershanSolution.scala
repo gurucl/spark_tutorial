@@ -13,6 +13,15 @@ object SudershanSolution {
 
     sc.setLogLevel("ERROR")
 
+    /**
+      * video.txt
+      *
+      * key|value
+      * 100:45 | 200:2#400:6
+      * 101:56 | 300:1#310:3
+      *
+      */
+
     val inputDF = spark.read.format("csv").option("header", "true").option("delimiter","|")
       .load("/Users/gcl/Documents/Github/spark_tutorial/src/main/resources/video.txt")
 
