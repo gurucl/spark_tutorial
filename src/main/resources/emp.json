@@ -1,5 +1,5 @@
-{ "id" : 1, "name": "Rakesh" }
-{ "id" : 2, "name" : "Rahul" }
-{ "id" : 3, "name" : "Rajesh" }
-{ "id" : 4, "name" : "Supreet" }
-{ "id" : 5, "name" : "Harpreet" }
+{ "id" : 1, "name": "Rakesh", "sal": 10000 }
+{ "id" : 2, "name" : "Rahul", "sal": 15000 }
+{ "id" : 3, "name" : "Rajesh" , "sal": 20000}
+{ "id" : 4, "name" : "Supreet" , "sal": 10000}
+{ "id" : 5, "name" : "Harpreet" , "sal": 30000}
