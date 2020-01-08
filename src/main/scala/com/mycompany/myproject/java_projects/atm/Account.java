@@ -46,7 +46,7 @@ public class Account {
         if ((checkingBalance-amount)>=0){
 
             calcCheckingWithDraw(amount);
-            System.out.println("New Checking Account balance is :"+ getCheckingBalance());
+            // System.out.println("New Checking Account balance is :"+ getCheckingBalance());
         }else {
             System.out.println("Withdraw amount can't be greater than Balance amount");
         }
@@ -56,6 +56,7 @@ public class Account {
 
         if (amount>=0){
             checkingBalance = checkingBalance-amount;
+            System.out.println("Transaction successfull. Please collect the cash : $$$$ " + amount);
         }else {
             System.out.println("Please Enter a valid amount to withdraw...");
         }
@@ -75,6 +76,7 @@ public class Account {
 
         if (amount>=0){
             checkingBalance = checkingBalance +amount;
+            System.out.println("New Checking Account balance is :"+ getCheckingBalance());
         }else {
             System.out.println("Please Deposit a valid amount: amount should be greater than 0");
         }
@@ -84,26 +86,15 @@ public class Account {
 
 
 
-
-    public void calcSavingsWithDraw(double amount){
-
-        if (amount>=0){
-            checkingBalance = checkingBalance-amount;
-        }else {
-            System.out.println("Please Enter a valid amount to withdraw...");
-        }
-    }
-
-
-    public double getCurrentAccountBalance(){
+    public double getSavingsAccountBalance(){
 
         return savingsBalance;
     }
 
 
-    public void getCurrentAccountWithdrawInput(){
+    public void getSavingsWithdrawInput(){
 
-        System.out.println("Your Current Account Balance is : "+ getCurrentAccountBalance());
+        System.out.println("Your Savings Account Balance is : "+ getSavingsAccountBalance());
 
         System.out.println("Enter the amount you want to withdraw :");
 
@@ -111,15 +102,44 @@ public class Account {
 
         if (savingsBalance - amount >0){
             calcSavingsWithDraw(amount);
-            System.out.println("New Savings account balance is :"+ getCurrentAccountBalance());
+           // System.out.println("New Savings account balance is :"+ getSavingsAccountBalance());
 
         }else {
 
             System.out.println("Withdraw amount can't be greater than balance amount");
         }
+    }
+
+    public void calcSavingsWithDraw(double amount){
+
+        if (amount>=0){
+            savingsBalance = savingsBalance-amount;
+            System.out.println("Transaction successfull. Please collect the cash : $$$$ " + amount);
+        }else {
+            System.out.println("Please Enter a valid amount to withdraw...");
+        }
+    }
 
 
 
+    public void getSavingsDepositInput(){
+
+        System.out.println("Enter the amount you want to Deposit :");
+
+        double amount = sc.nextDouble();
+
+        calcSavingsDeposit(amount);
+
+    }
+
+    public void calcSavingsDeposit(double amount){
+
+        if(amount>0){
+            savingsBalance = savingsBalance + amount;
+            System.out.println("New Savings account balance is :"+ getSavingsAccountBalance());
+        }else {
+            System.out.println("Please enter a valid amount to Deposit - Amount must be greate than 0");
+        }
 
     }
 

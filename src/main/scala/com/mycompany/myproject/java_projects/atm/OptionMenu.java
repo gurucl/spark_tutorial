@@ -58,10 +58,12 @@ public class OptionMenu extends Account {
 
     public void getAccountType(){
 
+        System.out.println("=========== Main Menu =============");
+
         System.out.println("Enter the Account type you want to access");
 
-        System.out.println("Type 1 :  Savings Account");
-        System.out.println("Type 2 :  Current Account");
+        System.out.println("Type 1 :  Current Account");
+        System.out.println("Type 2 :  Savings Account");
         System.out.println("Type 3 :  Exit");
 
         System.out.print("Enter Your Choice: ");
@@ -70,10 +72,10 @@ public class OptionMenu extends Account {
 
         switch (button){
 
-            case 1 : getCheckingAccount();
+            case 1 : getCurrentAccount();
                         break;
 
-            case 2 : getCurrentAccount();
+            case 2 : getSavingsAccount();
                         break;
 
             case 3 :
@@ -88,9 +90,9 @@ public class OptionMenu extends Account {
 
     }
 
-    public void getCheckingAccount(){
+    public void getCurrentAccount(){
 
-        System.out.println("Your Checking Account is here : ");
+        System.out.println("Your Current Account is here : ");
 
         System.out.println("Type 1: View Balance");
         System.out.println("Type 2: WithDraw Funds");
@@ -105,7 +107,7 @@ public class OptionMenu extends Account {
         switch (button){
 
             case 1 :
-                System.out.println("Your Checking Account Balance :" + getCheckingBalance());
+                System.out.println("Your Current Account Balance :" + getCheckingBalance());
                 getAccountType();
                 break;
 
@@ -132,9 +134,9 @@ public class OptionMenu extends Account {
     }
 
 
-    public void getCurrentAccount(){
+    public void getSavingsAccount(){
 
-        System.out.println("Your Current Account is here : ");
+        System.out.println("Your Savings Account is here : ");
 
         System.out.println("Type 1: View Balance ");
         System.out.println("Type 2: Withdraw Funds ");
@@ -149,15 +151,15 @@ public class OptionMenu extends Account {
         switch(button){
 
             case 1:
-                System.out.println("Your Current Account Balance is : "+ getCurrentAccountBalance());
+                System.out.println("Your Current Account Balance is : "+ getSavingsAccountBalance());
                 getAccountType();
                 break;
 
-            case 2: getCurrentAccountWithdrawInput();
+            case 2: getSavingsWithdrawInput();
                 getAccountType();
                 break;
 
-            case 3: //getCurrentAccountDepositInput();
+            case 3: getSavingsDepositInput();
                 getAccountType();
                 break;
 
@@ -167,6 +169,7 @@ public class OptionMenu extends Account {
 
                 default:
                     System.out.println("\n Invalid Choice... \n");
+                    getAccountType();
 
         }
 
