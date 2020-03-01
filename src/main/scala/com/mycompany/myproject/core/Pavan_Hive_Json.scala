@@ -9,7 +9,7 @@ object Pavan_Hive_Json {
 
   def main(args: Array[String]): Unit = {
 
-    val spark = SparkSession.builder().appName("Pavan_TimeStamp_Analysis").master("local[1]").getOrCreate()
+    val spark = SparkSession.builder().appName("Pavan_Hive_Json_Data_Analysis").master("local[1]").getOrCreate()
 
     val sc = spark.sparkContext
 
