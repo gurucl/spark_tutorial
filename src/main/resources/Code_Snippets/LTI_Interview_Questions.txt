@@ -24,7 +24,7 @@ val spark = SparkSession.builder()
 
 val empDF = spark.sql("select * from emp")
 
-val deptDF = spark.sql("select * from emp")
+val deptDF = spark.sql("select * from dept")
 
 val joinedDF = empDF.join(deptDF,empDF("deptIdNumber")===deptDF("DeptId"))
 
