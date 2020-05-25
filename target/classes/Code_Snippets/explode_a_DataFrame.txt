@@ -1,0 +1,35 @@
+===============>       Input Data     <=================
++---+--------------+-----+---------+--------+
+| ID|          Name|Class|StartDate| EndDate|
++---+--------------+-----+---------+--------+
+|  1  |    John    |   12| 20170909|20210909|
++---+--------------+-----+---------+--------+
+
+===============>   Apllication Code  <================
+
+val stdRDD=sc.textFile("file:///home/hduser/Desktop/input")
+
+val stdExplodedDF=stdRDD.map(_.split(",")).map(x=>(x(0).toInt,x(1).split(""),x(2).toInt,x(3),x(4))).toDF("ID","Name","Class","StartDate","EndDate")
+
+def ring(x:String)={
+val h="-"
+val out=x.substring(0,4)+h+x.substring(4,6)+h+x.substring(6,8)
+out
+}
+
+import org.apache.spark.sql.functions.udf
+
+val myUdf=udf(ring:String=>String)
+
+val outDF=stdExplodedDF.withColumn("StartDate",myUdf($"StartDate")).withColumn("EndDate",myUdf($"EndDate")).withColumn("Name",explode($"Name")).filter($"Name"!=="")
+
+outDF.show()
+
++---+----+-----+----------+----------+
+| ID|Name|Class| StartDate|   EndDate|
++---+----+-----+----------+----------+
+|  1|   J|   12|2017-09-09|2021-09-09|
+|  1|   o|   12|2017-09-09|2021-09-09|
+|  1|   h|   12|2017-09-09|2021-09-09|
+|  1|   n|   12|2017-09-09|2021-09-09|
++---+----+-----+----------+----------+

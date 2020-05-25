@@ -1,0 +1,52 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: spark-example-job
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: spark-example-job
+        spec:
+          containers:
+            - name: spark-job
+              args:
+                - spark-submit
+                - --master
+                - k8s://https://10.49.2.252:6443
+                - --deploy-mode
+                - cluster
+                - --name
+                - spark-demo
+                - --conf
+                - spark.jars.ivy=/tmp/.ivy
+                - --conf
+                - spark.hadoop.fs.s3a.aws.credentials.provider=org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider
+                - --class
+                - org.apache.griffin.measure.Application
+                - local:///usr/apps/measure-0.6.0-SNAPSHOT-2.4.0-hive.jar
+              image: docker.repo1.uhc.com/gcl/spark:livy-builder
+              imagePullPolicy: Always
+              resources:
+                limits:
+                  cpu: "2"
+                  memory: 1408Mi
+                requests:
+                  cpu: "1"
+                  memory: 1408Mi
+          securityContext:
+            runAsUser: 60217
+          serviceAccountName: bda-h2s-np
+          volumes:
+            - name: maprticket
+              secret:
+                defaultMode: 420
+                secretName: bda-h2s-maprtkt-secret
+            - name: hadoop-conf
+              secret:
+                defaultMode: 420
+                secretName: bdpaas-prod-elr
+          restartPolicy: OnFailure

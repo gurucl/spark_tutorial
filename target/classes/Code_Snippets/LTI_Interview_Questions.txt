@@ -1,0 +1,79 @@
+Q1.
+
+Read two Hive tables from Spark.
+Join them.
+Save the output to Hive table back. [Data in the hive table should not be overriden].
+
+------------------------------------
+
+val spark = SparkSession.builder()
+.appName("Hive_Data_Processor")
+.master("yarn")
+.enableHiveSupport()   // .config("hive.thriftserver","dbslr0306://44701")
+.getOrCreate
+
+or
+
+val spark = SparkSession.builder()
+	.appName(“SparkSql”)
+	.config("hive.server2.thrift.port", “10000")
+	.config("spark.sql.hive.thriftServer.singleSession", true)
+	.enableHiveSupport()
+	.getOrCreate()
+
+
+val empDF = spark.sql("select * from emp")
+
+val deptDF = spark.sql("select * from dept")
+
+val joinedDF = empDF.join(deptDF,empDF("deptIdNumber")===deptDF("DeptId"))
+
+joinedDF.createOrReplaceTempView("joinedTable")
+
+joinedDF.write.mode(SaveMode.Append).saveAsTable("cdb.joined_table")   or
+
+joinedDF.sql("create table joined_table as select * from joinedTable")
+
+================================================================================================
+Q2.
+
+MEMORY_ONLY_2   => What does this mean while caching the RDD or DataFrames.
+
+MEMORY_ONLY_2 => caches the RDD/ DataFrame with two replication
+
+================================================================================================
+
+Q3.
+
+What is the difference between the cache() and persist ?
+
+DF.cache() = DF.persist(MEMORY_ONLY)
+
+================================================================================================
+
+Q4.
+
+What are the performance tuning techniques you use in Spark Application.
+
+Ans: We can use Caching, We can tune number of Executors and cores.
+
+================================================================================================
+
+Q5.
+
+How do you debug a Spark Application for the performance. [If the job is taking too much time for processing].
+
+Ans:  Let me know... If you Know :)
+
+================================================================================================
+Q6.
+
+Write a factorial program in Scala with tail-recursion.
+
+
+def factorial(n:Int, res:BigInt=1):BigInt={
+if(n<=1) res
+else factorial(n-1, n*res)
+}
+
+================================================================================================

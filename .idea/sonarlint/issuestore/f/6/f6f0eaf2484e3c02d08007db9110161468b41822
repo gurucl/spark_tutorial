@@ -1,0 +1,20 @@
+
+ysquid:S00116"URename this field "SEMI_COLON" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡”ï…ıÿÿÿÿ8ëàÇø-
+squid:S00116"iRename this field "SPARK_OCCUPATION_MAP_FILE_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßÖıôùÿÿÿÿ8ÉŠşÆø-
+>squid:S1170"!Make this final field static too.(‹¹Ô[8ëàÇø-
+squid:S00116"aRename this field "SPARK_MOVIES_FILE_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹¹Ô[8ëàÇø-
+osquid:S00116"PRename this field "COMMA" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß«Ñ8ëàÇø-
+€squid:S00116"bRename this field "SPARK_AGE_MAP_FILE_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úËÁZ8ëàÇø-
+jsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(‚¸¸ÿÿÿÿÿ
+>squid:S1170"!Make this final field static too.(úËÁZ8ëàÇø-
+?squid:S1170"!Make this final field static too.(ß«Ñ8ëàÇø-
+>squid:S1170	"!Make this final field static too.(Ÿ ê58ëàÇø-
+?squid:S1170"!Make this final field static too.(¼úÃ8ëàÇø-
+Dsquid:S1170"!Make this final field static too.(»ºÓØıÿÿÿÿ8ëàÇø-
+Dsquid:S1170"!Make this final field static too.(ßÖıôùÿÿÿÿ8Ö€Çø-
+Dsquid:S1170"!Make this final field static too.(‡”ï…ıÿÿÿÿ8ëàÇø-
+osquid:S00116"PRename this field "COLON" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼úÃ8ëàÇø-
+osquid:S00116	"QRename this field "HYPHEN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ ê58ëàÇø-
+?squid:S1170"!Make this final field static too.(”‰¬¼8ëàÇø-
+†squid:S00116"bRename this field "SPARK_RATINGS_FILE_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ºÓØıÿÿÿÿ8ëàÇø-
+squid:S00116"`Rename this field "SPARK_USERS_FILE_PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”‰¬¼8ëàÇø-
