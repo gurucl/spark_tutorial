@@ -49,7 +49,7 @@ object NodesAndEdges {
     val EdgesSatisfiesAverageDegree = degreeOfVertices.filter(_._2>= averageOfDegree)
 
     println(s"===== EdgesSatisfiesAverageDegree ======")
-    EdgesSatisfiesAverageDegree.foreach(println)
+    EdgesSatisfiesAverageDegree.sortBy(-_._2).foreach(println)
 
     spark.stop()
 
